@@ -77,7 +77,7 @@ if __name__ == "__main__":
     print (behavior_name)
     print (spec)
     # Examine the number of observations per Agent
-    print("Number of observations : ", len(spec.observation_shapes))
+    print("Number of observations : ", len(spec.observation_specs))
     # Is the Action continuous or multi-discrete ?
     if action_spec.is_continuous():
         print("The action is continuous")
@@ -90,7 +90,7 @@ if __name__ == "__main__":
         for action, branch_size in enumerate(action_spec.discrete_branches):
             print(f"Action number {action} has {branch_size} different options")
     decision_steps, terminal_steps = env.get_steps(behavior_name)
-    for index, shape in enumerate(spec.observation_shapes):
+    for index, shape in enumerate(spec.observation_specs):
         if len(shape) == 1:
             print("First vector observations : ", decision_steps.obs[index][0,:])
     # Info about our environment ---------------------
